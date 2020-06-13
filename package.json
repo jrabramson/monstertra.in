@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "yarn build",
+    "build": "webpack --mode production && yarn server",
     "server": "node app.js",
     "client": "webpack-dev-server --mode development --devtool inline-source-map --hot",
     "dev": "concurrently \"npm run server\" \"npm run client\""
