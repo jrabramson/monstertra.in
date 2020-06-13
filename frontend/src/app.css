@@ -52,3 +52,7 @@ body {
   height: 100% !important;
   opacity: 0 !important;
 }
+
+a[href="https://www.froala.com/wysiwyg-editor?k=u"] {
+  display: none;
+}
