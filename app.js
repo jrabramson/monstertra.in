@@ -16,7 +16,7 @@ const app = express();
 
 app.use(cors())
 
-app.use(express.static(path.join(__dirname, 'frontend/dist')));
+app.use('/', express.static(path.join(__dirname, 'dist')));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -25,4 +25,4 @@ app.use(logger("dev"));
 
 app.use("/api", apiRoutes);
 
-app.listen(process.env.PORT || 80);
+app.listen(process.env.PORT || 5000);
