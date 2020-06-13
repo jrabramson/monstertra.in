@@ -1,0 +1,54 @@
+@import url(https://fonts.googleapis.com/css2?family=Acme&family=Noto+Sans+SC:wght@400;900&display=swap);
+
+p {
+  margin: 0;
+}
+
+body {
+  text-align: center;
+  margin: auto;
+  font-family: "Acme",Arial,"Helvetica Neue",Helvetica,sans-serif;
+}
+
+* {
+  font-family: "Acme",Arial,"Helvetica Neue",Helvetica,sans-serif;
+}
+
+.second-toolbar {
+  display: none
+}
+
+.fr-wrapper img {
+  display: inline-block !important;
+  width: 22px !important;
+  vertical-align: middle !important;
+}
+
+.fr-box {
+  position: absolute !important;
+  width: 100%;
+  bottom: 55px;
+  left: 20px;
+}
+
+.fr-toolbar {
+  background-color: #B9B4B0 !important;
+  border-radius: 0 !important;
+}
+
+.fr-element {
+  background-color: #D6C5B0 !important;
+  height: 185px;
+}
+
+.fr-delete-img {
+  display: none !important;
+}
+
+.fr-insert-img {
+  width: 100% !important;
+  position: absolute !important;
+  left: 125% !important;
+  height: 100% !important;
+  opacity: 0 !important;
+}
