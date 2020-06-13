@@ -34,6 +34,7 @@
   },
   "dependencies": {
     "arc-text": "^1.0.1",
+    "aws-sdk": "^2.696.0",
     "babel-polyfill": "^6.26.0",
     "bcrypt": "^3.0.7",
     "chalk": "^3.0.0",
