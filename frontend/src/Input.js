@@ -248,7 +248,7 @@ export default ({
           toolbarButtonsSM: ["insertImage", "bold"],
           toolbarButtonsXS: ["insertImage", "bold"],
           imageInsertButtons: ["imageManager"],
-          imageManagerLoadURL: `${process.env.REACT_APP_BACKEND_URL}/api/icons`,
+          imageManagerLoadURL: `/.netlify/functions/server/icons`,
           imageStyles: {
             class1: "inline-icon",
           },

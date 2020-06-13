@@ -4,6 +4,6 @@
   command = "yarn build"
 
 [template.environment]
-  REACT_APP_BACKEND_URL = "http://localhost:3002"
-  POST = 3002
+  REACT_APP_BACKEND_URL = ".netlify/functions/server"
+  PORT = 3002
   MONGODB = "mongodb+srv://monstertrain:R99vkfAyh8oElFbj@mtmdb-axxqj.mongodb.net/monstertrain?retryWrites=true&w=majority"

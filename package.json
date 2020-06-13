@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "webpack --mode production && yarn server",
-    "server": "node app.js",
+    "build": "webpack --mode production && netlify-lambda build express",
+    "server": "node server-local.js",
     "client": "webpack-dev-server --mode development --devtool inline-source-map --hot",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
@@ -56,6 +56,7 @@
     "react-dom": "^16.5.2",
     "react-draggable": "^4.4.3",
     "react-froala-wysiwyg": "^3.1.1-1",
+    "serverless-http": "^2.5.0",
     "styled-components": "^5.1.1",
     "use-fit-text": "^2.1.3"
   }
