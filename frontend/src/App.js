@@ -14,7 +14,7 @@ import TextbodyImg from "./assets/unit_textbody-sharedassets0.assets-570.png";
 import TypePlateImg from "./assets/all_typeplate_normal-sharedassets0.assets-1077.png";
 import images from "./assets";
 
-import InputSection from "./input.js";
+import InputSection from "./Input.js";
 
 function downloadURI(uri, name) {
   var link = document.createElement("a");
