@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "webpack --mode production && netlify-lambda build express",
+    "build": "webpack --mode production && netlify-lambda build .",
     "server": "node server-local.js",
     "client": "webpack-dev-server --mode development --devtool inline-source-map --hot",
     "dev": "concurrently \"npm run server\" \"npm run client\""
