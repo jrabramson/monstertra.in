@@ -52,6 +52,7 @@
     "momentjs": "^2.0.0",
     "mongoose": "^5.7.11",
     "morgan": "~1.9.1",
+    "netlify-lambda": "^1.6.3",
     "react": "^16.13.1",
     "react-dom": "^16.5.2",
     "react-draggable": "^4.4.3",
