@@ -25,4 +25,4 @@ app.use(logger("dev"));
 
 app.use("/api", apiRoutes);
 
-app.listen(process.env.PORT);
+app.listen(process.env.PORT || 80);
