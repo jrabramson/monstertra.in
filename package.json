@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "webpack --mode production && netlify-lambda build .",
-    "server": "node server-local.js",
+    "build": "webpack --mode production",
+    "heroku-postbuild":  "webpack --mode production",
+    "server": "node app.js",
     "client": "webpack-dev-server --mode development --devtool inline-source-map --hot",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },

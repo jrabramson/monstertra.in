@@ -4,7 +4,6 @@ const logger = require("morgan");
 const bodyParser = require("body-parser");
 const path = require('path');
 const cors = require('cors');
-const serverless = require('serverless-http');
 
 const dotenv = require("dotenv");
 dotenv.config();
@@ -24,8 +23,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(logger("dev"));
 
-app.use('/.netlify/functions/server', apiRoutes);
+app.use("/api", apiRoutes);
 
-
-module.exports = app;
-module.exports.handler = serverless(app);
+app.listen(process.env.PORT);
