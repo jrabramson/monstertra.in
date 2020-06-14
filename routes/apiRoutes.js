@@ -110,43 +110,43 @@ router.get("/user/:uid", auth.checkToken, (req, res) => {
 router.get("/icons", (req, res) => {
   return res.status(200).json([
     {
-      url: "http://localhost:3000/assets/attack.png",
-      thumb: "http://localhost:3000/assets/attack.png",
+      url: "/assets/attack.png",
+      thumb: "/assets/attack.png",
       tag: "attack",
     },
     {
-      url: "http://localhost:3000/assets/burnout.png",
-      thumb: "http://localhost:3000/assets/burnout.png",
+      url: "/assets/burnout.png",
+      thumb: "/assets/burnout.png",
       tag: "burnout",
     },
     {
-      url: "http://localhost:3000/assets/capacity.png",
-      thumb: "http://localhost:3000/assets/capacity.png",
+      url: "/assets/capacity.png",
+      thumb: "/assets/capacity.png",
       tag: "capacity",
     },
     {
-      url: "http://localhost:3000/assets/consumed.png",
-      thumb: "http://localhost:3000/assets/consumed.png",
+      url: "/assets/consumed.png",
+      thumb: "/assets/consumed.png",
       tag: "consumed",
     },
     {
-      url: "http://localhost:3000/assets/ember.png",
-      thumb: "http://localhost:3000/assets/ember.png",
+      url: "/assets/ember.png",
+      thumb: "/assets/ember.png",
       tag: "ember",
     },
     {
-      url: "http://localhost:3000/assets/gold.png",
-      thumb: "http://localhost:3000/assets/gold.png",
+      url: "/assets/gold.png",
+      thumb: "/assets/gold.png",
       tag: "gold",
     },
     {
-      url: "http://localhost:3000/assets/health.png",
-      thumb: "http://localhost:3000/assets/health.png",
+      url: "/assets/health.png",
+      thumb: "/assets/health.png",
       tag: "health",
     },
     {
-      url: "http://localhost:3000/assets/rage.png",
-      thumb: "http://localhost:3000/assets/rage.png",
+      url: "/assets/rage.png",
+      thumb: "/assets/rage.png",
       tag: "rage",
     }
   ]);
