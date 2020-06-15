@@ -171,7 +171,7 @@ export default ({
             type="text"
             value={name}
             maxLength={15}
-            onChange={(e) => onChange("name", e.target.value.replace('<p data-f-id="pbf" style="text-align: center; font-size: 14px; margin-top: 30px; opacity: 0.65; font-family: sans-serif;">Powered by <a href="https://www.froala.com/wysiwyg-editor?pb=1" title="Froala Editor">Froala Editor</a></p>', ''))}
+            onChange={(e) => onChange("name", e.target.value)}
           />
         </InputOption>
         <InputOption>
@@ -240,7 +240,7 @@ export default ({
       <FroalaEditor
         tag="textarea"
         model={description}
-        onModelChange={(val) => onChange("description", val)}
+        onModelChange={(val) => onChange("description", val.replace('<p data-f-id="pbf" style="text-align: center; font-size: 14px; margin-top: 30px; opacity: 0.65; font-family: sans-serif;">Powered by <a href="https://www.froala.com/wysiwyg-editor?pb=1" title="Froala Editor">Froala Editor</a></p>', ''))}
         config={{
           placeholderText: "Edit Your Content Here!",
           pluginsEnabled: ["image", "imageManager"],
