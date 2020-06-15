@@ -12,7 +12,7 @@ const images = {
     unit: require('./backframe/unit_backframe_normal_nonchampion-sharedassets0.assets-1071.png'),
     spell: require('./backframe/spell_backframe_normal-sharedassets0.assets-742.png'),
     champion: require('./backframe/unit_backframe_normal_champion-sharedassets0.assets-473.png'),
-    relic: require('./backframe/junk_backframe-sharedassets0.assets-933.png')
+    blight: require('./backframe/blight_backframe-sharedassets0.assets-942.png')
   },
   frames: {
     rounded : {
@@ -36,13 +36,17 @@ const images = {
     unit: require('./nameplate/unit_nameplate_normal_nonchampion-sharedassets0.assets-505.png'),
     champion: require('./nameplate/unit_nameplate_normal_nonchampion-sharedassets0.assets-505.png'),
     spell: require('./nameplate/spell_nameplate_normal-sharedassets0.assets-538.png'),
-    relic: require('./nameplate/junk_nameplate-sharedassets0.assets-1014.png')
+    blight: require('./nameplate/blight_nameplate-sharedassets0.assets-559.png')
   },
   rarity: {
     common: require('./nameplate/unit_nameplatebacking_common-sharedassets0.assets-759.png'),
     uncommon: require('./nameplate/unit_nameplatebacking_uncommon-sharedassets0.assets-813.png'),
     rare: require('./nameplate/unit_nameplatebacking_rare-sharedassets0.assets-509.png'),
     champion: require('./nameplate/unit_nameplatebacking_champ-sharedassets0.assets-669.png')
+  },
+  textbody: {
+    square: require('./unit_textbody-sharedassets0.assets-570.png'),
+    rounded: require('./blight_textbody-sharedassets0.assets-628.png')
   },
   chatbox: require('./ChatterBubble-sharedassets0.assets-877.png'),
   button: require('./button_default-sharedassets0.assets-702.png'),

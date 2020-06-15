@@ -10,7 +10,6 @@ import PageBG from "./assets/mt_bg.jpg";
 import CardIcons from "./assets/cardIcons-sharedassets0.assets-981.png";
 import CostIcon from "./assets/unit_ember-sharedassets0.assets-523.png";
 import CostBacking from "./assets/spell_emberbacking_normal-sharedassets0.assets-808.png";
-import TextbodyImg from "./assets/unit_textbody-sharedassets0.assets-570.png";
 import TypePlateImg from "./assets/all_typeplate_normal-sharedassets0.assets-1077.png";
 import images from "./assets";
 
@@ -142,12 +141,12 @@ const TextbodyWrapper = styled.div`
     }
   }
 `;
-const Textbody = ({ text }) => {
+const Textbody = ({ text, bodyType }) => {
   const { fontSize, ref } = useFitText(text);
 
   return (
     <TextbodyWrapper>
-      <img src={TextbodyImg} />
+      <img src={bodyType} />
       <p
         ref={ref}
         style={{ fontSize, height: 110, width: 190 }}
@@ -241,7 +240,7 @@ const ImageWrapperContainer = styled.div`
   width: 197px;
   height: 225px;
   border-radius: 95px 95px 0px 0px;
-  left: 40px;;
+  left: 40px;
   overflow: hidden;
 
   & img {
@@ -340,24 +339,32 @@ export default class App extends Component {
 
   getFrameType() {
     const frameMap = {
-      unit: 'rounded',
-      champion: 'rounded',
-      spell: 'square',
-      relic: 'square',
-    }
+      unit: "rounded",
+      champion: "rounded",
+      spell: "square",
+      blight: "square",
+    };
     return frameMap[this.state.variant];
   }
 
   getRarityIcon() {
-    if (this.state.variant === 'champion') {
+    if (this.state.variant === "champion") {
       return images.rarity.champion;
     }
 
-    if (this.state.variant === 'relic') {
-      return '';
+    if (this.state.variant === "blight") {
+      return "";
     }
 
     return images.rarity[this.state.rarity];
+  }
+
+  getBodyType() {
+    if (this.state.variant === "blight") {
+      return images.textbody.rounded;
+    }
+
+    return images.textbody.square;
   }
 
   export() {
@@ -410,14 +417,26 @@ export default class App extends Component {
           <PreviewWrapper id="card-container">
             <img src={images.backframes[variant]} />
             <ImageWrapper image={image} />
-            {['unit', 'champion', 'spell'].includes(variant) && <Frame src={images.frames[this.getFrameType()][clan]} />}
-            {['unit', 'champion'].includes(variant) && <Pips src={images.pips[capacity - 1]} />}
-            {['unit', 'champion', 'spell'].includes(variant) && <Cost amount={cost} />}
-            <Textbody key={String(description)} text={description} />
+            {["unit", "champion", "spell"].includes(variant) && (
+              <Frame src={images.frames[this.getFrameType()][clan]} />
+            )}
+            {["unit", "champion"].includes(variant) && (
+              <Pips src={images.pips[capacity - 1]} />
+            )}
+            {["unit", "champion", "spell"].includes(variant) && (
+              <Cost amount={cost} />
+            )}
+            <Textbody
+              key={String(description)}
+              text={description}
+              bodyType={this.getBodyType()}
+            />
             <Nameplate name={name} variant={variant} />
             <Rarity src={this.getRarityIcon()} />
-            {['unit', 'champion'].includes(variant) && <Attack amount={attack} />}
-            {['unit', 'champion'].includes(variant) && <Life amount={life} />}
+            {["unit", "champion"].includes(variant) && (
+              <Attack amount={attack} />
+            )}
+            {["unit", "champion"].includes(variant) && <Life amount={life} />}
             {type && <Typeplate type={type} />}
           </PreviewWrapper>
           <button onClick={this.export}>

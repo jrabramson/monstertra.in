@@ -190,7 +190,7 @@ export default ({
               value={cost}
               maxLength={2}
               onChange={(e) => onChange("cost", e.target.value)}
-              disabled={variant !== "relic"}
+              disabled={variant !== "blight"}
             />
             <input
               type="text"
@@ -277,8 +277,8 @@ export default ({
           onClick={() => onChange("variant", "champion")}
         />
         <TypeOption
-          iconOffset={[0, 0]}
-          onClick={() => onChange("variant", "relic")}
+          iconOffset={[-80, -120]}
+          onClick={() => onChange("variant", "blight")}
         />
       </TypeSelect>
       <ClanSelect>
