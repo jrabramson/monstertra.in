@@ -251,7 +251,7 @@ const ImageWrapperContainer = styled.div`
 const ImageWrapper = ({ image }) => {
   return (
     <ImageWrapperContainer>
-      <Draggable defaultPosition={{ x: 0, y: 0 }}>
+      <Draggable defaultPosition={{ x: -256, y: 48 }}>
         <img src={`${image}`} draggable={false} />
       </Draggable>
     </ImageWrapperContainer>
@@ -326,7 +326,7 @@ export default class App extends Component {
     variant: "unit",
     clan: "hellhorned",
     name: "Testo",
-    image: "",
+    image: require('./assets/61-uHLw2vVL._AC_SL1239_.jpg'),
     cost: 1,
     attack: 5,
     life: 30,
