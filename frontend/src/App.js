@@ -66,17 +66,11 @@ const NameplateWrapper = styled.div`
 `;
 const Nameplate = ({ name, variant }) => {
   const nameRef = useRef();
-  const [ready, setReady] = useState(false);
-
-  useEffect(() => {
-    setReady(false);
-  }, [name]);
 
   useEffect(() => {
     if (nameRef.current) {
       const arcText = new ArcText(nameRef.current);
       arcText.arc(450);
-      setTimeout(() => setReady(true), 100);
     }
   }, [nameRef, name]);
 
@@ -335,7 +329,7 @@ export default class App extends Component {
   state = {
     variant: "unit",
     clan: "hellhorned",
-    name: "Testo",
+    name: "",
     image: require("./assets/61-uHLw2vVL._AC_SL1239_.jpg"),
     cost: 1,
     attack: 5,
@@ -346,6 +340,13 @@ export default class App extends Component {
     description:
       "<p><br></p><p><strong>Slay</strong>: +5<img src='/assets/health.png' style='width: 300px;' class='fr-fic fr-dib'></p><p><strong>Revenge</strong>:  +1<img data-fr-image-pasted='true' src='/assets/gold.png' style='font-family: Acme, Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; width: 300px; max-width: 100%; cursor: pointer; padding: 0px 1px; color: rgb(65, 65, 65); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(214, 197, 176); text-decoration-style: initial; text-decoration-color: initial;' class='fr-fic fr-dii'>&nbsp;</p>",
   };
+
+  componentDidMount() {
+    this.setState({
+      ...this.state,
+      name: "Testo"
+    })
+  }
 
   getFrameType() {
     const frameMap = {
