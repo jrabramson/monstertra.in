@@ -236,10 +236,20 @@ const Life = ({ amount }) => {
 
 const ImageWrapperContainer = styled.div`
   position: absolute;
-  top: 34px;
+  top: ${(props) =>
+    props.variant === "unit" || props.variant === "champion"
+      ? "34px"
+      : props.variant === "spell"
+      ? "46px"
+      : "42px;"};
   width: 197px;
   height: 225px;
-  border-radius: 95px 95px 0px 0px;
+  border-radius: ${(props) =>
+    props.variant === "unit" || props.variant === "champion"
+      ? "95px 95px 0px 0px"
+      : props.variant === "spell"
+      ? "0px"
+      : "232px 232px 0 0 / 62px 62px 0 0;"};
   left: 40px;
   overflow: hidden;
 
@@ -248,9 +258,9 @@ const ImageWrapperContainer = styled.div`
     cursor: pointer;
   }
 `;
-const ImageWrapper = ({ image }) => {
+const ImageWrapper = ({ image, variant }) => {
   return (
-    <ImageWrapperContainer>
+    <ImageWrapperContainer variant={variant}>
       <Draggable defaultPosition={{ x: -256, y: 48 }}>
         <img src={`${image}`} draggable={false} />
       </Draggable>
@@ -326,7 +336,7 @@ export default class App extends Component {
     variant: "unit",
     clan: "hellhorned",
     name: "Testo",
-    image: require('./assets/61-uHLw2vVL._AC_SL1239_.jpg'),
+    image: require("./assets/61-uHLw2vVL._AC_SL1239_.jpg"),
     cost: 1,
     attack: 5,
     life: 30,
@@ -416,7 +426,7 @@ export default class App extends Component {
           />
           <PreviewWrapper id="card-container">
             <img src={images.backframes[variant]} />
-            <ImageWrapper image={image} />
+            <ImageWrapper image={image} variant={variant} />
             {["unit", "champion", "spell"].includes(variant) && (
               <Frame src={images.frames[this.getFrameType()][clan]} />
             )}
