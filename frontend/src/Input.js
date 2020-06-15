@@ -250,6 +250,7 @@ export default ({
           toolbarButtonsXS: ["insertImage", "bold"],
           imageInsertButtons: ["imageManager"],
           imageManagerLoadURL: `${process.env.REACT_APP_BACKEND_URL}/api/icons`,
+          attribution: false,
           imageStyles: {
             class1: "inline-icon",
           },
