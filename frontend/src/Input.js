@@ -24,6 +24,7 @@ const ImageInput = styled.label`
   position: absolute;
   bottom: 45px;
   right: -250px;
+  font-size: 26px;
 
   &:hover {
     background-image: url(${images.buttonHover});
@@ -190,7 +191,7 @@ export default ({
               value={cost}
               maxLength={2}
               onChange={(e) => onChange("cost", e.target.value)}
-              disabled={variant !== "blight"}
+              disabled={variant === "blight"}
             />
             <input
               type="text"
