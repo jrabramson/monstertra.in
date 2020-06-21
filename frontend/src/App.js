@@ -65,20 +65,33 @@ const NameplateWrapper = styled.div`
   }
 `;
 const Nameplate = ({ name, variant }) => {
-  const nameRef = useRef();
+  const { fontSize, ref } = useFitText(name);
+  const [width, setWidth] = useState(280);
 
   useEffect(() => {
-    if (nameRef.current) {
-      const arcText = new ArcText(nameRef.current);
+    if (ref.current) {
+      const arcText = new ArcText(ref.current);
       arcText.arc(650);
+
+      setTimeout(() => {
+        setWidth(281);
+      }, 33)
+      setTimeout(() => {
+        setWidth(280);
+      }, 66)
     }
-  }, [nameRef, name]);
+  }, [ref, name]);
 
   return (
     <NameplateWrapper>
       <img src={images.nameplates[variant]} />
       <AttrText>
-        <span ref={nameRef}>{name}</span>
+        <div
+          style={{ fontSize, height: 51, width: width, display: "block" }}
+          ref={ref}
+        >
+          {name}
+        </div>
       </AttrText>
     </NameplateWrapper>
   );

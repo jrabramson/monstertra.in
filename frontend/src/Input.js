@@ -137,7 +137,7 @@ const InputOption = styled.div`
         display: flex;
 
         & > input {
-          width: 20px !important;
+          width: 30px !important;
           margin-right: 12px;
         }
       }`;
@@ -246,7 +246,6 @@ export default ({
           <input
             type="text"
             value={name}
-            maxLength={15}
             onChange={(e) => onChange("name", e.target.value)}
           />
         </InputOption>
@@ -265,21 +264,21 @@ export default ({
             <input
               type="text"
               value={cost}
-              maxLength={2}
+              maxLength={3}
               onChange={(e) => onChange("cost", e.target.value)}
               disabled={variant === "blight"}
             />
             <input
               type="text"
               value={attack}
-              maxLength={2}
+              maxLength={3}
               onChange={(e) => onChange("attack", e.target.value)}
               disabled={variant !== "unit" && variant !== "champion"}
             />
             <input
               type="text"
               value={life}
-              maxLength={2}
+              maxLength={3}
               onChange={(e) => onChange("life", e.target.value)}
               disabled={variant !== "unit" && variant !== "champion"}
             />
