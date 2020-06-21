@@ -14,43 +14,18 @@ body {
   font-family: "Acme",Arial,"Helvetica Neue",Helvetica,sans-serif;
 }
 
-.second-toolbar {
-  display: none
-}
-
-.fr-wrapper img {
-  display: inline-block !important;
-  width: 22px !important;
-  vertical-align: middle !important;
-}
-
-.fr-box {
-  position: absolute !important;
-  width: 100%;
-  bottom: 55px;
-  left: 20px;
-}
-
-.fr-toolbar {
+.ql-toolbar {
   background-color: #B9B4B0 !important;
   border-radius: 0 !important;
 }
 
-.fr-element {
+.ql-toolbar img {
+  height: 20px;
+}
+
+.ql-container {
   background-color: #D6C5B0 !important;
-  height: 185px;
-}
-
-.fr-delete-img {
-  display: none !important;
-}
-
-.fr-insert-img {
-  width: 100% !important;
-  position: absolute !important;
-  left: 125% !important;
-  height: 100% !important;
-  opacity: 0 !important;
+  height: 185px !important;
 }
 
 a[href="https://www.froala.com/wysiwyg-editor?k=u"] {

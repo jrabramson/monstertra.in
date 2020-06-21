@@ -1,13 +1,38 @@
 import React from "react";
-import FroalaEditor from "react-froala-wysiwyg";
-import "froala-editor/js/froala_editor.pkgd.min.js";
-import "froala-editor/js/plugins.pkgd.min.js";
-import "froala-editor/js/plugins/image_manager.min.js";
-import "froala-editor/css/froala_style.min.css";
-import "froala-editor/css/plugins/image.min.css";
-import "froala-editor/css/froala_editor.pkgd.min.css";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
 import styled from "styled-components";
 import images from "./assets";
+
+function insertIcon(quill, name) {
+  const selection = quill.getSelection();
+  if (!selection) {
+    return;
+  }
+
+  const cursorPosition = selection.index;
+  quill.insertEmbed(cursorPosition, "image", `/assets/${name}.png`);
+  quill.setSelection(cursorPosition + 1);
+}
+
+const editorModules = {
+  toolbar: {
+    container: "#toolbar",
+    handlers: {
+      insertAttack: function() { insertIcon(this.quill, 'attack') },
+      insertHealth: function() { insertIcon(this.quill, 'health') },
+      insertBurnout: function() { insertIcon(this.quill, 'burnout') },
+      insertCapacity: function() { insertIcon(this.quill, 'capacity') },
+      insertConsumed: function() { insertIcon(this.quill, 'consumed') },
+      insertEmber: function() { insertIcon(this.quill, 'ember') },
+      insertGold: function() { insertIcon(this.quill, 'gold') },
+      insertRage: function() { insertIcon(this.quill, 'rage') },
+    },
+    clipboard: {
+      matchVisual: false,
+    },
+  },
+};
 
 const ImageInput = styled.label`
   background-image: url(${images.button});
@@ -76,6 +101,18 @@ const TypeOption = styled.div`
   cursor: pointer;
 `;
 
+const EditorWrapper = styled.div`
+  position: absolute;
+  bottom: 55px;
+  width: 100%;
+  min-height: 210px;
+  left: 20px;
+
+  img {
+    vertical-align: middle;
+  }
+`;
+
 const InputOption = styled.div`
   flex: 1 1 33%;
   align-items: center;
@@ -132,6 +169,45 @@ const InputWrapper = styled.div`
     }
   }
 `;
+
+const InsertAttackButton = () => <img src="/assets/attack.png" />;
+const InsertHealthButton = () => <img src="/assets/health.png" />;
+const InsertBurnoutButton = () => <img src="/assets/burnout.png" />;
+const InsertCapacityButton = () => <img src="/assets/capacity.png" />;
+const InsertConsumedButton = () => <img src="/assets/consumed.png" />;
+const InsertEmberButton = () => <img src="/assets/ember.png" />;
+const InsertGoldButton = () => <img src="/assets/gold.png" />;
+const InsertRageButton = () => <img src="/assets/rage.png" />;
+const CustomToolbar = () => (
+  <div id="toolbar">
+    <button className="ql-bold" />
+    <button className="ql-insertAttack">
+      <InsertAttackButton />
+    </button>
+    <button className="ql-insertHealth">
+      <InsertHealthButton />
+    </button>
+    <button className="ql-insertBurnout">
+      <InsertBurnoutButton />
+    </button>
+    <button className="ql-insertCapacity">
+      <InsertCapacityButton />
+    </button>
+    <button className="ql-insertConsumed">
+      <InsertConsumedButton />
+    </button>
+    <button className="ql-insertEmber">
+      <InsertEmberButton />
+    </button>
+    <button className="ql-insertGold">
+      <InsertGoldButton />
+    </button>
+    <button className="ql-insertRage">
+      <InsertRageButton />
+    </button>
+  </div>
+);
+
 export default ({
   onChange,
   name,
@@ -237,25 +313,15 @@ export default ({
           </select>
         </InputOption>
       </div>
-      <FroalaEditor
-        tag="textarea"
-        model={description}
-        onModelChange={(val) => onChange("description", val.replace('<p data-f-id="pbf" style="text-align: center; font-size: 14px; margin-top: 30px; opacity: 0.65; font-family: sans-serif;">Powered by <a href="https://www.froala.com/wysiwyg-editor?pb=1" title="Froala Editor">Froala Editor</a></p>', ''))}
-        config={{
-          placeholderText: "Edit Your Content Here!",
-          pluginsEnabled: ["image", "imageManager"],
-          toolbarButtons: ["insertImage", "bold"],
-          toolbarButtonsMD: ["insertImage", "bold"],
-          toolbarButtonsSM: ["insertImage", "bold"],
-          toolbarButtonsXS: ["insertImage", "bold"],
-          imageInsertButtons: ["imageManager"],
-          imageManagerLoadURL: `${process.env.REACT_APP_BACKEND_URL}/api/icons`,
-          attribution: false,
-          imageStyles: {
-            class1: "inline-icon",
-          },
-        }}
-      />
+      <EditorWrapper>
+        <CustomToolbar />
+        <ReactQuill
+          value={description}
+          onChange={(val) => onChange("description", val)}
+          formats={["bold", "image"]}
+          modules={editorModules}
+        />
+      </EditorWrapper>
       <input
         type="file"
         multiple={false}
