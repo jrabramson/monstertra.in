@@ -372,7 +372,12 @@ export default class App extends Component {
   }
 
   export() {
-    html2canvas(document.querySelector("#card-container"), { allowTaint: true, backgroundColor: "rgba(0,0,0,0)" }).then((canvas) => {
+    html2canvas(document.querySelector("#card-container"), {
+      allowTaint: true,
+      backgroundColor: "rgba(0,0,0,0)",
+      scrollX: -window.scrollX,
+      scrollY: -window.scrollY,
+    }).then((canvas) => {
       var myImage = canvas.toDataURL();
       downloadURI(myImage, "custom-card.png");
     });
