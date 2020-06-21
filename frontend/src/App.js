@@ -70,7 +70,7 @@ const Nameplate = ({ name, variant }) => {
   useEffect(() => {
     if (nameRef.current) {
       const arcText = new ArcText(nameRef.current);
-      arcText.arc(450);
+      arcText.arc(650);
     }
   }, [nameRef, name]);
 
