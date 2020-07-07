@@ -75,10 +75,10 @@ const Nameplate = ({ name, variant }) => {
 
       setTimeout(() => {
         setWidth(281);
-      }, 33)
+      }, 33);
       setTimeout(() => {
         setWidth(280);
-      }, 66)
+      }, 66);
     }
   }, [ref, name]);
 
@@ -266,10 +266,28 @@ const ImageWrapperContainer = styled.div`
   }
 `;
 const ImageWrapper = ({ image, variant }) => {
+  const [pos, setPos] = useState({ x: -256, y: 48 });
+  const imgRef = useRef(null);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setPos({ x: 0, y: imgRef.current.clientHeight / 4 });
+    }, 33);
+  }, [image]);
+
+  const onControlledDrag = (e, position) => {
+    const { x, y } = position;
+    setPos({ x, y });
+  };
+
   return (
     <ImageWrapperContainer variant={variant}>
-      <Draggable defaultPosition={{ x: -256, y: 48 }}>
-        <img src={`${image}`} draggable={false} />
+      <Draggable
+        defaultPosition={pos}
+        position={pos}
+        onDrag={onControlledDrag}
+      >
+        <img src={`${image}`} draggable={false} ref={imgRef} />
       </Draggable>
     </ImageWrapperContainer>
   );
@@ -343,7 +361,7 @@ export default class App extends Component {
     variant: "unit",
     clan: "hellhorned",
     name: "",
-    image: require("./assets/61-uHLw2vVL._AC_SL1239_.jpg"),
+    image: require("./assets/Train_Steward.png"),
     cost: 2,
     attack: 5,
     life: 30,

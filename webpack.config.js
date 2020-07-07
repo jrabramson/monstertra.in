@@ -17,7 +17,7 @@ module.exports = {
   entry: ["babel-polyfill", "./frontend/src/index.js"],
   output: {
     path: path.join(__dirname, outputDirectory),
-    filename: '[name].[contenthash].js',
+    filename: '[name].[hash].js',
   },
   module: {
     rules: [
